@@ -1,3 +1,13 @@
+@import 'colors';
+@import 'header';
+@import 'results';
+//@import './node_modules/feather-icons-sass';
+
 body {
-  background-color: #CB3837;
+  font-family: 'Arimo', sans-serif;
+  background-color: $white;
+  padding: 0px;
+  margin: 0px;
 }
+
+

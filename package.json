@@ -61,5 +61,9 @@
     "webpack-bundle-analyzer": "^2.8.2",
     "webpack-config-utils": "^2.3.0",
     "webpack-dev-server": "^2.4.5"
+  },
+  "dependencies": {
+    "feather-icons-sass": "^1.0.0",
+    "normalize.css": "^7.0.0"
   }
 }

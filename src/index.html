@@ -3,13 +3,54 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Arimo:400,700" rel="stylesheet">
+    <title>BrandSearch</title>
   </head>
   <body>
     <div id="root"></div>
 
+    <div class="header">
+
+      <div class="header__logo">
+        BrandSearch
+      </div>
+      
+      <div class="header__form">
+        <input type="text" placeholder="Search">
+        <svg class="header__form__icon"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="10.5" cy="10.5" r="7.5"/>
+          <line x1="21" y1="21" x2="15.8" y2="15.8"/>
+        </svg>
+      </div>
+
+    </div>
+
+    <div class="results">
+
+      <div class="results__item">
+        <div class="results__item__logo">
+          Logo
+        </div>
+        <div class="results__item__desc">
+            <div class="results__item__desc__title">
+              Title
+            </div>
+            <div class="results__item__desc__text">
+              short desc about the brand and stuff
+            </div>
+        </div>
+
+        <div class="results__colors">
+          <div class="results__colors__item" style="background-color: red"></div>
+          <div class="results__colors__item" style="background-color: blue"></div>
+        </div>
+      </div>
+
+    
+    </div>
+
     <!-- inline webpack manifest -->
     <%= htmlWebpackPlugin.files.webpackManifest %>
-
     <!-- built files will be auto injected -->
   </body>
 </html>
