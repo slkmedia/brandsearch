@@ -7,7 +7,31 @@
     justify-content: center;
     align-items: center;
     background: linear-gradient(-45deg, #2a3b56, #394E70);
-   // background-color: #2a3b56;
+    position: relative;
+
+    &__dots--bottom {
+        background: url('../../public/img/dots-bottom.svg') no-repeat;
+        width: 1413px;
+        height: 150px;
+        position: absolute;
+        bottom: 0;
+        opacity: 0.3;
+    }
+
+    @media(max-width: 805px){
+        &__dots--left {
+            width: 320px;
+        }
+        &__dots--right {
+            display: none;
+        }
+    }
+
+    &__info {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
     
     &__logo {
         font-size: 40px;

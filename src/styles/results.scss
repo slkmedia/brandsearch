@@ -16,6 +16,7 @@
        align-items: center;
        position: relative;
        margin-top: 1px;
+       transition: background-color 0.3s ease-in-out;
 
        &__logo {
            padding: 20px;
@@ -37,7 +38,7 @@
     }
 
     &__item:hover {
-        background-color: $lightGray;
+        background-color: #FCFCFC;
     }
 
     @media(max-width: 950px){
@@ -53,11 +54,12 @@
     }
 
     &__colors {
+        position: absolute;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        position: absolute;
         bottom: 0;
+        left: 0;
         width: 100%;
 
         &__item {
