@@ -4,3 +4,4 @@ dist/
 npm-debug.log
 .env
 yarn-error.log
+creds.json

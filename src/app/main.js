@@ -2,6 +2,7 @@
 
 import '../styles/main.scss' // eslint-disable-line
 require('../app/info-module.js')
+require('../app/results.js')
 
 export function sum (a: number, b: number): number {
   return a + b

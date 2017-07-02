@@ -64,6 +64,7 @@
   },
   "dependencies": {
     "feather-icons-sass": "^1.0.0",
+    "google-spreadsheet": "^2.0.4",
     "normalize.css": "^7.0.0"
   }
 }
