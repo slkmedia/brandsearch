@@ -5,3 +5,4 @@ npm-debug.log
 .env
 yarn-error.log
 creds.json
+src/app/json/basic.json
