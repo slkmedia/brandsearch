@@ -58,14 +58,19 @@
             background-color: rgba(255,255,255,0.35);
             border-radius: 2px;
             border: 1px solid $white;
+            transition: background-color 0.3s ease-in-out;
         }
 
         & input::-webkit-input-placeholder {
             color: white;
         }
 
+        & input:hover {
+            background-color: rgba(255,255,255,0.5);
+        }
+
         & input:focus {
-            box-shadow: 0px 0px 10px $darkGray;
+            background-color: rgba(255,255,255,0.65);
         }
 
     }
