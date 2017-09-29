@@ -31,6 +31,7 @@ async.series([
 
           for(var i = 0; i < rows.length; i++){
               
+              temp.push(rows[i].id);
               temp.push(rows[i].name);
               temp.push(rows[i].tagline);
               

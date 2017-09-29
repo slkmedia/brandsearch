@@ -52,6 +52,10 @@
                font-size: 16px;
            }
        }
+
+       &__popup {
+           display: none;
+       }
     }
 
     &__item:hover {
