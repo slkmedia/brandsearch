@@ -132,3 +132,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
   var searchList = new List('search-list', options)
   console.log(searchList, options)
 })
+
+window.onpopstate = function (event) {
+  document.getElementById('results-modal-js').innerHTML = ''
+  window.history.pushState(window.location.href.split('/')[2], null, '/')
+  noScroll(false)
+}

@@ -273,7 +273,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency',
-      template: './index.html',
+      template: './200.html',
       inject: true,
       minify: ifProduction({
         removeComments: true,
