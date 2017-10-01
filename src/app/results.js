@@ -1,3 +1,4 @@
+import List from 'list.js'
 var basicResults = require('./json/basic.json')
 
 var template = []
@@ -12,26 +13,20 @@ for (var i = 0; i < basicResults.length; i++) {
 
   for (var c = 0; c < 5; c++) {
     if (basicResults[i][3][c] !== 'null') {
-      item.color += '<div class="results__colors__item" style="background-color: ' + basicResults[i][3][c] + '"></div>'
+      item.color += '<div class="results__colors__item" style="background-color: ' + basicResults[i][3][c] + '"> <span class="results__swatch-hidden swatch">' + basicResults[i][3][c] + '</span></div>'
     }
   }
 
   var markup = `
-        <div class="results__item">
-        <div class="results__item__plus" data-id="${item.id}">+</div>
+        <div class="results__item item" data-id="${item.id}">
         <div class="results__item__desc">
-            <div class="results__item__desc__title">
+            <div class="results__item__desc__title name">
               ${item.name}
             </div>
-            <div class="results__item__desc__text">
+            <div class="results__item__desc__text tagline">
               ${item.tagline}
             </div>
         </div>
-
-        <div class="results__item__popup">
-          test
-        </div>
-
         <div class="results__colors">
           ${item.color}
         </div>
@@ -58,8 +53,8 @@ function openModal (id) {
     if (basicResults[id][3][c] !== 'null') {
       item.color += `
       <div class="results-modal__colors">
-        <div class="results-modal__colors-code">${basicResults[id][3][c]}</div>
         <div class="results-modal__colors-swatch" style="background-color: ${basicResults[id][3][c]}"></div>
+        <div class="results-modal__colors-code">${basicResults[id][3][c]}</div>
       </div>
       `
     }
@@ -70,14 +65,18 @@ function openModal (id) {
       <div class="results-modal__close-btn">
         <img src="img/x-circle.svg">
       </div>
-      <div class="results-modal__name">
-        ${item.name}
-      </div>
-      <div class="results-modal__tagline">
-        ${item.tagline}
-      </div>
-      <div class="results-modal__colors-container">
-        ${item.color}
+      <div class="results-modal__top-container">
+        <div class="results-modal__title">
+          <div class="results-modal__name">
+            ${item.name}
+          </div>
+          <div class="results-modal__tagline">
+            ${item.tagline}
+          </div>
+        </div>
+        <div class="results-modal__colors-container">
+          ${item.color}
+        </div>
       </div>
     </div>
   `
@@ -89,10 +88,18 @@ function openModal (id) {
 }
 
 document.addEventListener('DOMContentLoaded', function (event) {
-  let resultsItems = document.querySelectorAll('.results__item > .results__item__plus')
+  let resultsItems = document.querySelectorAll('.results__item')
   resultsItems.forEach(function (item) {
     item.onclick = function () {
       openModal(this.dataset.id)
     }
   }, this)
+})
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  var options = {
+    valueNames: [ 'name', 'tagline', 'swatch' ]
+  }
+  var searchList = new List('search-list', options)
+  console.log(searchList, options)
 })

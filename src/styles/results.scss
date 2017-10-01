@@ -17,6 +17,7 @@
        position: relative;
        margin-top: 1px;
        transition: background-color 0.3s ease-in-out;
+       cursor: pointer;
 
        &__plus {
            position: absolute;
@@ -88,5 +89,9 @@
             height: 30px;
             width: 100%;         
         }
+    }
+
+    &__swatch-hidden {
+        display: none;
     }
 }
