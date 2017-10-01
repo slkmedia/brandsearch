@@ -109,7 +109,7 @@ function openModal (slug) {
   `
   document.getElementById('results-modal-js').innerHTML = resultsModal
 
-  document.getElementsByClassName('results-modal__close-btn')[0].onclick = function () {
+  document.getElementsByClassName('results-modal__close-btn')[0].onclick = function (event) {
     document.getElementById('results-modal-js').innerHTML = ''
     window.history.pushState(window.location.href.split('/')[2], null, '/')
     noScroll(false)

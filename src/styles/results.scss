@@ -3,7 +3,12 @@
     display: flex;
     flex-wrap: wrap;
     padding: 0px;
-    margin: 0px;
+    padding-top: 50px;
+    z-index: 45;
+    
+    @media(max-width: 420px){
+        padding-top: 58px;
+    }
 
     &__item {
        width: 25%;
