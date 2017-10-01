@@ -5,6 +5,7 @@
   height: 100%;
   justify-content: center;
   left: 0;
+  opacity: 0.98;
   position: fixed;
   top: 0;
   width: 100%;
@@ -22,6 +23,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
+    @media(max-width: 450px){
+      padding: 0px 15px;
+    }
   }
 
   &__name {
@@ -36,6 +41,7 @@
   &__colors-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     margin-top: 30px;
     background-color: #f9f9f9;
     padding: 15px;

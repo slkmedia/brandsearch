@@ -13,4 +13,13 @@ body {
   width: 100%;
 }
 
+.no-scroll {
+  overflow-x: hidden; 
+  overflow-y: hidden;
+  position: fixed;
+}
 
+input, textarea, select {
+  -webkit-appearance: none;
+  border-radius: 0;
+}

@@ -33,6 +33,7 @@ async.series([
               
               temp.push(rows[i].id);
               temp.push(rows[i].name);
+              temp.push(rows[i].slug);
               temp.push(rows[i].tagline);
               
                 if(rows[i].color1 != ""){

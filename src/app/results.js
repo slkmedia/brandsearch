@@ -3,22 +3,39 @@ var basicResults = require('./json/basic.json')
 
 var template = []
 
+var url = window.location.pathname
+
+var slugURL = url.split('/')[1]
+
+if (slugURL) {
+  openModal(slugURL)
+}
+
+function noScroll (action) {
+  if (action === true) {
+    document.body.className += ' ' + 'no-scroll'
+  } else {
+    document.body.className = ''
+  }
+}
+
 for (var i = 0; i < basicResults.length; i++) {
   const item = {
     id: basicResults[i][0],
     name: basicResults[i][1],
-    tagline: basicResults[i][2],
+    slug: basicResults[i][2],
+    tagline: basicResults[i][3],
     color: ''
   }
 
   for (var c = 0; c < 5; c++) {
-    if (basicResults[i][3][c] !== 'null') {
-      item.color += '<div class="results__colors__item" style="background-color: ' + basicResults[i][3][c] + '"> <span class="results__swatch-hidden swatch">' + basicResults[i][3][c] + '</span></div>'
+    if (basicResults[i][4][c] !== 'null') {
+      item.color += '<div class="results__colors__item" style="background-color: ' + basicResults[i][4][c] + '"> <span class="results__swatch-hidden swatch">' + basicResults[i][3][c] + '</span></div>'
     }
   }
 
   var markup = `
-        <div class="results__item item" data-id="${item.id}">
+        <div class="results__item item" data-slug="${item.slug}">
         <div class="results__item__desc">
             <div class="results__item__desc__title name">
               ${item.name}
@@ -39,22 +56,32 @@ for (var j = 0; j < template.length; j++) {
   document.getElementById('js-results').innerHTML += template[j]
 }
 
-function openModal (id) {
+function openModal (slug) {
+  noScroll(true)
+
+  window.history.pushState(window.location.href, '/', slug)
+
+  for (let i = 0; i < basicResults.length; i++) {
+    if (basicResults[i][2] === slug) {
+      var id = basicResults[i][0]
+    }
+  }
+
   id = (parseInt(id) - 1)
 
   let item = {
     id: basicResults[id][0],
     name: basicResults[id][1],
-    tagline: basicResults[id][2],
+    tagline: basicResults[id][3],
     color: ''
   }
 
   for (var c = 0; c < 5; c++) {
-    if (basicResults[id][3][c] !== 'null') {
+    if (basicResults[id][4][c] !== 'null') {
       item.color += `
       <div class="results-modal__colors">
-        <div class="results-modal__colors-swatch" style="background-color: ${basicResults[id][3][c]}"></div>
-        <div class="results-modal__colors-code">${basicResults[id][3][c]}</div>
+        <div class="results-modal__colors-swatch" style="background-color: ${basicResults[id][4][c]}"></div>
+        <div class="results-modal__colors-code">${basicResults[id][4][c]}</div>
       </div>
       `
     }
@@ -84,6 +111,8 @@ function openModal (id) {
 
   document.getElementsByClassName('results-modal__close-btn')[0].onclick = function () {
     document.getElementById('results-modal-js').innerHTML = ''
+    window.history.pushState(window.location.href.split('/')[2], null, '/')
+    noScroll(false)
   }
 }
 
@@ -91,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   let resultsItems = document.querySelectorAll('.results__item')
   resultsItems.forEach(function (item) {
     item.onclick = function () {
-      openModal(this.dataset.id)
+      openModal(this.dataset.slug)
     }
   }, this)
 })
