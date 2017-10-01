@@ -138,3 +138,10 @@ window.onpopstate = function (event) {
   window.history.pushState(window.location.href.split('/')[2], null, '/')
   noScroll(false)
 }
+
+document.getElementsByClassName('header__logo')[0].onclick = function (event) {
+  document.getElementById('results-modal-js').innerHTML = ''
+  document.getElementsByClassName('info-module')[0].style.display = 'none'
+  window.history.pushState(window.location.href.split('/')[2], null, '/')
+  noScroll(false)
+}

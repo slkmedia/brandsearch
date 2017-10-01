@@ -1,4 +1,5 @@
 require('dotenv').config()
+var fs = require('fs');
 
 const {resolve} = require('path')
 const webpack = require('webpack')
@@ -298,5 +299,17 @@ module.exports = {
     ),
 
     new ProgressBarPlugin()
+    
   ])
 }
+
+process.stdin.resume()
+
+function rename200 () {
+  fs.rename(__dirname + '/dist/index.html', __dirname + '/dist/200.html', function(err){
+    if ( err ) console.log('ERROR: ' + err)
+  })
+  console.log('I RANDLSJFSDJ')
+}
+
+process.on('exit', rename200.bind())

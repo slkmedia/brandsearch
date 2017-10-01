@@ -45,6 +45,7 @@
         color: $black;
         letter-spacing: 0.5px;
         padding: 10px 20px 10px 0px;
+        cursor: pointer;
 
         @media(max-width: 500px) {
             font-size: 18px;
