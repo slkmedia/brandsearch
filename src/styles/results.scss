@@ -64,7 +64,7 @@
        }
     }
 
-    &__item:hover {
+    &__item:hover, &__item:focus {
         background-color: #EFDC05;
     }
 
@@ -97,6 +97,6 @@
     }
 
     &__swatch-hidden {
-        display: none;
+        visibility: hidden;
     }
 }

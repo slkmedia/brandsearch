@@ -31,7 +31,7 @@ async.series([
 
           for(var i = 0; i < rows.length; i++){
               
-              temp.push(rows[i].id);
+              temp.push(i + 1);
               temp.push(rows[i].name);
               temp.push(rows[i].slug);
               temp.push(rows[i].tagline);
@@ -54,6 +54,8 @@ async.series([
 
 
               temp.push(colors);
+
+              temp.push(rows[i].link);
 
               basic.push(temp);
 

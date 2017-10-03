@@ -30,12 +30,12 @@ for (var i = 0; i < basicResults.length; i++) {
 
   for (var c = 0; c < 5; c++) {
     if (basicResults[i][4][c] !== 'null') {
-      item.color += '<div class="results__colors__item" style="background-color: ' + basicResults[i][4][c] + '"> <span class="results__swatch-hidden swatch">' + basicResults[i][3][c] + '</span></div>'
+      item.color += '<div class="results__colors__item" style="background-color: ' + basicResults[i][4][c] + '"> <span class="results__swatch-hidden swatch">' + basicResults[i][4][c] + '</span></div>'
     }
   }
 
   var markup = `
-        <div class="results__item item" data-slug="${item.slug}">
+        <div class="results__item item" tabindex="0" data-slug="${item.slug}">
         <div class="results__item__desc">
             <div class="results__item__desc__title name">
               ${item.name}
@@ -73,6 +73,7 @@ function openModal (slug) {
     id: basicResults[id][0],
     name: basicResults[id][1],
     tagline: basicResults[id][3],
+    link: basicResults[id][5],
     color: ''
   }
 
@@ -87,6 +88,15 @@ function openModal (slug) {
     }
   }
 
+  if (item.link !== 'null') {
+    item.link = `<a href="${item.link}" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+</svg></a>`
+  } else {
+    item.link = ''
+  }
+
   let resultsModal = `
     <div class="results-modal">
       <div class="results-modal__close-btn">
@@ -95,7 +105,7 @@ function openModal (slug) {
       <div class="results-modal__top-container">
         <div class="results-modal__title">
           <div class="results-modal__name">
-            ${item.name}
+            ${item.name} ${item.link}
           </div>
           <div class="results-modal__tagline">
             ${item.tagline}
@@ -114,6 +124,13 @@ function openModal (slug) {
     window.history.pushState(window.location.href.split('/')[2], null, '/')
     noScroll(false)
   }
+  window.onkeydown = function (e) {
+    if (e.keyCode === 27) {
+      document.getElementById('results-modal-js').innerHTML = ''
+      window.history.pushState(window.location.href.split('/')[2], null, '/')
+      noScroll(false)
+    }
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -121,6 +138,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
   resultsItems.forEach(function (item) {
     item.onclick = function () {
       openModal(this.dataset.slug)
+    }
+    item.onkeydown = function (e) {
+      if (e.keyCode === 13) {
+        openModal(e.target.dataset.slug)
+      }
     }
   }, this)
 })
