@@ -267,7 +267,7 @@ module.exports = {
       })
     ),
 
-    process.env.BUNDLE_ANALYZER_REPORT && ifProduction(new BundleAnalyzerPlugin()),
+    // process.env.BUNDLE_ANALYZER_REPORT && ifProduction(new BundleAnalyzerPlugin()),
 
     ifProduction(new ExtractTextPlugin('static/css/[name].[contenthash:8].css')),
 
@@ -307,9 +307,8 @@ process.stdin.resume()
 
 function rename200 () {
   fs.rename(__dirname + '/dist/index.html', __dirname + '/dist/200.html', function(err){
-    if ( err ) console.log('ERROR: ' + err)
+   // if ( err ) console.log('ERROR: ' + err)
   })
-  console.log('I RANDLSJFSDJ')
 }
 
-process.on('exit', rename200.bind())
+process.on('SIGINT', rename200.bind())
