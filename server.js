@@ -56,6 +56,7 @@ async.series([
               temp.push(colors);
 
               temp.push(rows[i].link);
+              temp.push(rows[i].logo);
 
               basic.push(temp);
 

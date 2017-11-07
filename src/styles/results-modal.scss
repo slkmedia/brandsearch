@@ -72,4 +72,14 @@
     color: $black;
     text-transform: uppercase;
   }
+
+  &__logo-container {
+    max-width: 340px;
+    text-align: center;
+    margin-top: 40px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 }

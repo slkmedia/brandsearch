@@ -74,6 +74,7 @@ function openModal (slug) {
     name: basicResults[id][1],
     tagline: basicResults[id][3],
     link: basicResults[id][5],
+    logo: basicResults[id][6],
     color: ''
   }
 
@@ -86,6 +87,15 @@ function openModal (slug) {
       </div>
       `
     }
+  }
+
+  if (item.logo !== 'null') {
+    item.logo = `
+    <div class="results-modal__logo-container">
+      <a href="${item.logo}"><img src="${item.logo}" alt="${item.name} Logo"></a>
+    </div>`
+  } else {
+    item.logo = ''
   }
 
   if (item.link !== 'null') {
@@ -114,6 +124,7 @@ function openModal (slug) {
         <div class="results-modal__colors-container">
           ${item.color}
         </div>
+        ${item.logo}
       </div>
     </div>
   `
