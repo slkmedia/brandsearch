@@ -62,7 +62,7 @@
         </div>
       </div>
 
-      <div class="header__info">
+      <div tabindex="0" class="header__info">
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"/>
             <line x1="12" y1="16" x2="12" y2="12"/>
@@ -86,6 +86,8 @@
           <p>
             Search assets, colors, and standards for a variety of different brands.
           </p>
+          <div id="code-sponsor-widget"></div>
+          
         </div>
 
         <div class="info-module__links">
@@ -99,7 +101,8 @@
     </div>
 
     <div id="results-modal-js"></div>
-
+    <script type="text/javascript"
+    src="https://app.codesponsor.io/scripts/OWoOCxwsgmLTU_LFqsNovw?theme=light"></script>
     <!-- inline webpack manifest -->
     <%= htmlWebpackPlugin.files.webpackManifest %>
     <!-- built files will be auto injected -->

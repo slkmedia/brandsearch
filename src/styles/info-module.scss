@@ -31,6 +31,7 @@
 
     &__about {
         padding-right: 20px;
+        margin-top: 150px;
 
         &__title {
             font-size: 24px;
@@ -79,8 +80,8 @@
 
     .info-module__about {
         padding-right: 0px;
-        padding-bottom: 20px;
-        margin-bottom: 10px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
         border-bottom: 2px solid $black;
         width: 80%;
     }
@@ -90,7 +91,7 @@
         padding-top: 10px;
         margin-left: 0px;
         border-left: 0px;
-
+        margin-top: 0px;
         &__list {
             margin-left: 0px;
             padding-left: 0px;

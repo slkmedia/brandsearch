@@ -7,9 +7,14 @@ var url = window.location.pathname
 
 var slugURL = url.split('/')[1]
 
-if (slugURL) {
-  openModal(slugURL)
-}
+document.addEventListener('DOMContentLoaded', function (event) {
+  if (slugURL !== 'about') {
+    openModal(slugURL)
+  } else {
+    window.history.pushState(window.location.href, '/', 'about')
+    document.getElementsByClassName('info-module')[0].style.display = 'flex'
+  }
+})
 
 function noScroll (action) {
   if (action === true) {
